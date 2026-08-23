@@ -1,0 +1,3 @@
+cat subdomin.txt | while read rr ;do gnome-terminal --geometry=80x24+0+0 --geometry=220x10 -- bash -c "ffuf -u "$rr/FUZZ" -w ~/Desktop/WO_all-2.txt ; exec bash" ;done
+
+cat subdomin.txt | while read rr ;do gnome-terminal -- bash -c "ffuf -u "$rr/FUZZ" -w ~/Desktop/WO_all.txt" ;done && cat subdomin.txt | while read rr ;do gnome-terminal -- bash -c "ffuf -u "$rr/FUZZ" -w ~/Desktop/WO_api.txt" ;done&& cat subdomin.txt | while read rr ;do gnome-terminal -- bash -c "ffuf -u "$rr/FUZZ" -w ~/Desktop/WO_control-cgi.txt" ;done&& cat subdomin.txt | while read rr ;do gnome-terminal -- bash -c "ffuf -u "$rr/FUZZ" -w ~/Desktop/W0_param-api.txt" ;done
