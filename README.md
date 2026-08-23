@@ -16,25 +16,53 @@ Cheat-sheet:
 -Running JavaScript on each page send to proxy.
 -Running cariddi to Crawler
 
-ffufleet:
+SQLMap
+sqlmap — Automatic SQL Injection And Database Takeover Tool
 
-SQL Injection Vulnerability Scanner Tool's :
-SQLMap – Automatic SQL Injection And Database Takeover Tool
+https://github.com/sqlmapproject/sqlmap
 
-jSQL Injection – Java Tool For Automatic SQL Database Injection
+jSQL Injection
+jsql-injection — Java Tool For Automatic SQL Database Injection
 
-BBQSQL – A Blind SQL-Injection Exploitation Tool
+https://github.com/ron190/jsql-injection
 
-NoSQLMap – Automated NoSQL Database Pwnage
+BBQSQL
+bbqsql — A Blind SQL-Injection Exploitation Tool
 
-Whitewidow – SQL Vulnerability Scanner
+https://github.com/Neohapsis/bbqsql
 
-DSSS – Damn Small SQLi Scanner
+NoSQLMap
+nosqlmap — Automated NoSQL Database Pwnage
 
-explo – Human And Machine Readable Web Vulnerability Testing Format
+https://github.com/codingo/NoSQLMap
 
-Blind-Sql-Bitshifting – Blind SQL-Injection via Bitshifting
+Whitewidow
+whitewidow — SQL Vulnerability Scanner
 
-Leviathan – Wide Range Mass Audit Toolkit
+https://github.com/WhitewidowScanner/whitewidow
 
-Blisqy – Exploit Time-based blind-SQL-injection in HTTP-Headers (MySQL/MariaDB)
+DSSS
+dsss — Damn Small SQLi Scanner
+
+https://github.com/stamparm/DSSS
+
+explo
+explo — Human And Machine Readable Web Vulnerability Testing Format
+
+https://github.com/explo-x/explo
+
+Blind-Sql-Bitshifting
+blind-sql-bitshifting — Blind SQL-Injection via Bitshifting
+
+https://github.com/expectedbehavior/Blind-Sql-Bitshifting
+
+Leviathan
+leviathan — Wide Range Mass Audit Toolkit
+
+https://github.com/leviathan-framework/leviathan
+
+Blisqy
+blisqy — Exploit Time-based blind-SQL-injection in HTTP-Headers (MySQL/MariaDB)
+
+https://github.com/JohnTroony/Blisqy
+
