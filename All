@@ -2,7 +2,7 @@ echo 'https://www.cc.gg.jj.jj[200] [HTTP/3,...]' | sed -E ':a; s/\[[^][]*\]//g; 
 weybackurls | sed -E ':a; s/\[[^][]*\]//g; ta; s/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]{2,}/ /g'
 
 BBRF SCOPE DoD
-bbrf inscope add '*.af.mil' '*.osd.mil' '*.marines.mil' '*.pentagon.mil' '*.disa.mil' '*.health.mil' '*.dau.mil' '*.dtra.mil' '*.ng.mil' '*.dds.mil' '*.uscg.mil' '*.army.mil' '*.dcma.mil' '*.dla.mil' '*.dtic.mil' '*.yellowribbon.mil' '*.socom.mil'
+bbrf inscope add '*.test-af.com' '*.test-osd.com' '*.test-marines.com' '*.test-pentagon.com' '*.test-disa.com' '*.test-health.com' '*.test-dau.com' '*.test-dtra.com' '*.test-ng.com' '*.test-dds.com' '*.test-uscg.com' '*.test-army.com' '*.test-dcma.com' '*.test-dla.com' '*.test-dtic.com' '*.test-yellowribbon.com' '*.test-socom.com'
 
 Xray Oneliner
 xargs -a urls.txt -I@ sh -c './xray webscan --plugins cmd-injection,sqldet,xss --url "@" --html-output vuln.html'
