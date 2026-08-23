@@ -1,0 +1,2 @@
+echo 'https://www.cc.gg.jj.jj[200] [HTTP/3,...]' | sed -E ':a; s/\[[^][]*\]//g; ta; s/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]{2,}/ /g'
+weybackurls | sed -E ':a; s/\[[^][]*\]//g; ta; s/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]{2,}/ /g'
