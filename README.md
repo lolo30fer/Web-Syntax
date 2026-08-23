@@ -1,4 +1,4 @@
-Cheat-sheet:
+## Cheat-sheet:
 
 -BBRF SCOPE DoD
 -Xray Oneliner
@@ -15,6 +15,8 @@ Cheat-sheet:
 -.bashrc shortcut OFJAAAH
 -Running JavaScript on each page send to proxy.
 -Running cariddi to Crawler
+
+---
 
 ## SQL Injection Vulnerability Scanner Tools
 
